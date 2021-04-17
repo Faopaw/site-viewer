@@ -1,0 +1,76 @@
+/* CSS HEX
+--baby-powder: #fdfffcff;     ------> Main Background Colour
+--fire-opal: #dd614aff;       ------>
+--middle-red: #f48668ff;      ------>
+--persian-green: #25a18eff;   ------>
+--prussian-blue: #13293dff;   ------>       */ 
+/*  */
+body{
+  font-family: 'Roboto', sans-serif;
+  background: #fdfffcff;  /*Baby Powder / Off-white */
+
+
+}
+
+main {
+  display: flex;
+  flex-direction: column;  /* keep in mind the main and cross axix are flipped here. */
+  align-items: center;
+  text-align: center;
+}
+
+main header{
+  display: block;
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 1%;
+}
+
+form{
+  display: block;
+}
+
+div.card img {
+  /* border: 1px solid #ddd;
+  border-radius: 4px; */
+  max-width: 100%;
+  /* min-width: 100%; */
+  background-size: cover;
+  background-position: center;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px ;
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: start;
+    margin:0 auto;
+  }
+
+.card{
+    border-radius: 6px;
+    flex: 0 1 auto;
+    margin: 10px;
+    overflow: hidden;
+}
+
+
+header.locationname {
+  padding: 5px 5px;
+  font-size: large;
+  font-weight: 500;
+}
+
+div.details{
+  padding: 5px 5px;
+}
+
+.distancefrom {
+  padding:5px 5px;
+  text-align: end
+}
