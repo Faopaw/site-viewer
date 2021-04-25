@@ -23,7 +23,7 @@
     
 </head>
 
-<body>
+<body id="body">
 <main>
     
     <header ><i class="fas fa-map-marked-alt"></i> Moonsighting App</header>
@@ -36,20 +36,26 @@
     </form>  
 </main>
 
+<section class="container" id="greatercontainer">  <!-- This will contain both the cards container and the map container -->
+  
+  <section class="container" id="cardsContainer"> <!-- This is where all the cards with their images will go. -->
+      <!-- <div class="card" style="width: 18rem;">
+          <img src="images/No_image_3x4.svg.png" class="card-img-top" alt="No Image Available">
+          <div class="card-body">
+            <h5 class="card-title">Name</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Location</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go here!</a>
+          </div>
+      </div> -->
+  </section>
 
-<section class="container" id="mainContainer"> <!-- This is where all the cards with their images will go. -->
-    <div class="card" style="width: 18rem;">
-        <img src="images/No_image_3x4.svg.png" class="card-img-top" alt="No Image Available">
-        <div class="card-body">
-          <h5 class="card-title">Name</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Location</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go here!</a>
-        </div>
-    </div>
-      
-      
+  <section class="container" id="mapContainer">
+    <iframe id="iframe" src="https://www.google.com/maps/d/embed?mid=1i85CHz15y6JTwO811OLxIilkvoMTVB_b&hl=en_GB" width="640" height="480"></iframe>
+  </section>
+<!--  -->
 </section>
+  
 
 
 
@@ -59,9 +65,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <!-- Bootstrap JS from their CDN -->
-<script async
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-</script>
+
+<!-- <script async defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpC8Xf9RATOlAMmPAbdgViO-o5G8QoG00&callback=initMap"
+type="text/javascript"></script> -->
+
+<!-- The API key is AIzaSyBpC8Xf9RATOlAMmPAbdgViO-o5G8QoG00 -->
 <script src="https://kit.fontawesome.com/3f9fcc8d29.js" crossorigin="anonymous"></script>
 <script src="scripts/app.js" defer></script>
 </body>
