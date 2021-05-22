@@ -24,11 +24,12 @@
 <main>
     
     <header ><i class="fas fa-map-marked-alt"></i> Moonsighting App</header>
-    <form id="form"   action="scripts/app.js" method="GET">
+    <form id="form"   >
+      <!-- action="app.js" method="GET" -->
         <div class="inputBox">
-            <label for="location">Please enter your location here:</label>
-            <input type="text" name="location" id="locationInput" placeholder="Enter your address....">
-            <button type="submit" class="btn btn-Success">Submit!</button>
+            <label for="location">Please enter your location here(Lat, Long):</label>
+            <input type="text" name="location" id="locationInput" placeholder="Type here....">
+            <button type="submit" class="btn btn-Success" id="formSubmit">Submit!</button>
         </div>
     </form>  
 </main>

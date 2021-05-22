@@ -88,7 +88,7 @@ div.card img {
 #map {
   height: 500px;
   width: 500px;
-  overflow: hidden;
+  /* overflow: hidden; */
   position:relative;
   /* margin: 40px; */
 
@@ -127,4 +127,13 @@ div.details{
     max-width: 80%;
   }
 
+}
+
+
+.floatright{
+  float: right;
+}
+
+.floatleft{
+  float: left;
 }
