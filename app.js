@@ -18,6 +18,7 @@
 const body = document.getElementById("body");
 const cardsContainer = document.querySelector("#cardsContainer");
 const myform = document.getElementById("form");
+const locationInput = document.getElementById("locationInput");
 
 
 const parsedJSON = {
@@ -126,6 +127,8 @@ loadData(parsedJSON);
 // Creats a new map
 map = new google.maps.Map(document.getElementById('map'), options)
 
+
+
 //Make an array of markers
 const markersArray = parsedJSON.features;
 
@@ -169,8 +172,8 @@ const calculateDistanceMatrix = function() {
   const [origin,destinations] = fetchOriginandDestinations();
   const service = new google.maps.DistanceMatrixService(); // instantiate Distance Matrix service
   const matrixOptions = {
-    origins: origin, // technician locations
-    destinations: destinations, // customer address
+    origins: [origin], // technician locations
+    destinations: [destinations], // customer address
     travelMode: 'DRIVING',
     unitSystem: google.maps.UnitSystem.IMPERIAL
   };
@@ -192,26 +195,38 @@ const calculateDistanceMatrix = function() {
 myform.onsubmit = (e) => {
   e.preventDefault();
   console.log("Form has been submitted")
-  const request = new XMLHttpRequest();
-  request.open("get","data.json");
-  request.onload = function () {
-  console.log(request.responseText);
-  }
-  request.send(new FormData(myform));
-  console.log("sedfghbwesewjg")
-  // calculateDistanceMatrix();
+  // const request = new XMLHttpRequest();
+  // request.open("get","data.json");
+  // request.onload = function () {
+  // console.log(request.responseText);
+  // }
+  // request.send(new FormData(myform));
+  // console.log("sedfghbwesewjg")
+
+  calculateDistanceMatrix();
 };
 
 
 const fetchOriginandDestinations = function(){
   //This function gets the users location and the destinations and puts them both in arrays
-  const origin = (document.getElementById("locationInput").value).map(String);
+  const origin = (locationInput.value);
+  const regex = ",";
+  const comma = origin.search(regex);
+  console.log(comma);
+  const lat = Number(origin.slice(0,comma -1));
+  console.log(origin)
+  const lng = Number(origin.slice(comma + 1,origin.length - 1));
+  const origins = {lat:lat,lng:lng}
+  console.log(origins)
+
   const destinations = []
+
   for (let i = 0; i < parsedJSON.features.length; i++) {
-    // const element = array[index];
-    destinations.push(parsedJSON.features[i].geometry.coordinates)
+    const lat = parsedJSON.features[i].geometry.coordinates[0];
+    const lng = parsedJSON.features[i].geometry.coordinates[1];
+    destinations.push({lat:lat,lng:lng})
   }
-  const destinationsString = destinations.map(String);
-  console.log(destinationsString);
-  return origin, destinationsString;
+
+  console.log(destinations);
+  return origins, destinations;
 }
