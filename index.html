@@ -24,10 +24,10 @@
 <main>
     
     <header ><i class="fas fa-map-marked-alt"></i> Moonsighting App</header>
-    <form id="form"   >
+    <form id="form" action="/dist/bundle.js" method = "POST">
       <!-- action="app.js" method="GET" -->
         <div class="inputBox">
-            <label for="location">Please enter your location here(Lat, Long):</label>
+            <label for="locationInput">Please enter your location here :</label>
             <input type="text" name="location" id="locationInput" placeholder="Type here....">
             <button type="submit" class="btn btn-Success" id="formSubmit">Submit!</button>
         </div>
@@ -70,7 +70,10 @@
 
 
 <script src="https://kit.fontawesome.com/3f9fcc8d29.js" crossorigin="anonymous"></script>
-<script src="/app.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script><!-- Axios CDN -->
+<!-- <script src="/dist/bundle.js"></script> -->
+
+<script src="/dist/bundle.js"></script>
 <script async 
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpC8Xf9RATOlAMmPAbdgViO-o5G8QoG00&callback=initMap">
 </script>
