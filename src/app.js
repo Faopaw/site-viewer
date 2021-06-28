@@ -246,17 +246,26 @@ function callDirectionsAPI (userlocation) {
   
   const params = new URLSearchParams({
     origin: userlocation,
-    destination: '52.636269601952499, -1.11793914530396',
+    destination: '52.636269601952499,-1.11793914530396',
     key: 'AIzaSyBpC8Xf9RATOlAMmPAbdgViO-o5G8QoG00' 
   })
 
-  const url = `https://maps.googleapis.com/maps/api/directions/json?${params.toString()}`
-  console.log(`this is the url: ${url}`)
+  params.forEach(function(key,value){
+    console.log(`${key}: ${encodeURIComponent(value)}`)
+  })
 
-  fetch(url)
+  const encodedQueryString = params.toString();
+  const url = `https://maps.googleapis.com/maps/api/directions/json?${encodedQueryString}`;
+  console.log(`encoded url = ${url}`);
+
+  fetch(url,{
+    method: 'GET',
+    mode: "no-cors"
+  })
     .then(response => response.text())
-    .then(console.log)
-
+    .then(response => console.log(response,"______", "Dummy Text!"))
+    .catch(console.error('The fetch API failed.'));
+}
 
 
 
@@ -287,4 +296,3 @@ function callDirectionsAPI (userlocation) {
   
   // }
 
-}
